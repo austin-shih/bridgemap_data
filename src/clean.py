@@ -133,6 +133,7 @@ def main(in_file, out_file):
     bridges = modify_clean_values(bridges)
     # roads = modify_geo(roads)
 
+
     # rename columns for readability
     print('renaming columns...')
     bridges = bridges.rename(columns = {
@@ -164,6 +165,8 @@ def main(in_file, out_file):
                                         'SUBSTRUCTU': 'substructure_condition'
                                         }
                             )
+    
+    bridges = bridges.drop(['state_fips', 'county_code'], axis=1)
 
     # save processed data
     print('saving clean data...')
